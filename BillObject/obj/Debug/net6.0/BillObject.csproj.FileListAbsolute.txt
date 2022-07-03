@@ -1,0 +1,14 @@
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\bin\Debug\net6.0\BillObject.deps.json
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\bin\Debug\net6.0\BillObject.dll
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\bin\Debug\net6.0\BillObject.pdb
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\obj\Debug\net6.0\BillObject.csproj.AssemblyReference.cache
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\obj\Debug\net6.0\BillObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\obj\Debug\net6.0\BillObject.AssemblyInfoInputs.cache
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\obj\Debug\net6.0\BillObject.AssemblyInfo.cs
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\obj\Debug\net6.0\BillObject.csproj.CoreCompileInputs.cache
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\obj\Debug\net6.0\BillObject.dll
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\obj\Debug\net6.0\refint\BillObject.dll
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\obj\Debug\net6.0\BillObject.pdb
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\obj\Debug\net6.0\ref\BillObject.dll
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\bin\Debug\net6.0\BillObject.runtimeconfig.json
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillObject\obj\Debug\net6.0\BillObject.genruntimeconfig.cache
