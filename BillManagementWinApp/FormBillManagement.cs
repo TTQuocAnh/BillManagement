@@ -170,5 +170,69 @@ namespace BillManagementWinApp
                 throw new Exception(ex.Message);
             }
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            txtMaKH.Text = "";
+            txtHoten.Text = "";
+            txtDiachi.Text = "";
+            txtQuoctich.Text = "";
+            txtDoituong.Text = "";
+            txtDinhMuc.Text = "";
+            txtSoLuong.Text = "";
+            txtMaKH.Focus();
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            SaveInfo();
+        }
+
+        private void SaveInfo()
+        {
+            try
+            {
+                OpenConnection();
+                SqlCommand command = new SqlCommand();
+                command.CommandType = CommandType.Text;
+                string sql = "Insert into KhachHang values(@MaKH,@HoTenKH,@DiaChiKH,@QuocTich," +
+                    "@DoiTuongKH,@SoLuongTieuThu,@DinhMucTieuThu)";
+                command.CommandText = sql;
+                command.Connection = conn;
+
+                command.Parameters.Add("@MaKH", SqlDbType.Int).Value = txtMaKH.Text;
+                command.Parameters.Add("@HoTenKH", SqlDbType.NVarChar).Value = txtHoten.Text;
+                command.Parameters.Add("@DiaChiKH", SqlDbType.NVarChar).Value = txtDiachi.Text;
+                command.Parameters.Add("@QuocTich", SqlDbType.NVarChar).Value = txtQuoctich.Text;
+                command.Parameters.Add("@DoiTuongKH", SqlDbType.NVarChar).Value = txtDoituong.Text;
+                command.Parameters.Add("@SoLuongTieuThu", SqlDbType.Decimal).Value = txtSoLuong.Text;
+                command.Parameters.Add("@DinhMucTieuThu", SqlDbType.Decimal).Value = txtDinhMuc.Text;
+
+                int kq = command.ExecuteNonQuery();
+
+                if (kq > 0)
+                {
+                    LoadListKH();
+                    MessageBox.Show("Thêm mới hoá đơn thành công", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    btnNew.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm mới hoá đơn thành công","",MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
