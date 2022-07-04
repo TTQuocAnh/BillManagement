@@ -33,7 +33,6 @@ D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\bin
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj\Debug\net6.0-windows\BillManagementWinApp.csproj.AssemblyReference.cache
-D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj\Debug\net6.0-windows\BillManagementWinApp.FormBillManagement.resources
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj\Debug\net6.0-windows\BillManagementWinApp.csproj.GenerateResource.cache
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj\Debug\net6.0-windows\BillManagementWinApp.GeneratedMSBuildEditorConfig.editorconfig
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj\Debug\net6.0-windows\BillManagementWinApp.AssemblyInfoInputs.cache
@@ -58,4 +57,6 @@ D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\bin
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\bin\Debug\net6.0-windows\BillObject.dll
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\bin\Debug\net6.0-windows\BillObject.pdb
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj\Debug\net6.0-windows\BillManagementWinApp.Properties.Resources.resources
-D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj\Debug\net6.0-windows\BillManagementWinApp.FormBillDetails.resources
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj\Debug\net6.0-windows\BillManagementWinApp.FormChiTietHoaDon.resources
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\bin\Debug\net6.0-windows\DataAccess.dll
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\bin\Debug\net6.0-windows\DataAccess.pdb

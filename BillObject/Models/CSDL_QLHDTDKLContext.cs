@@ -17,6 +17,7 @@ namespace BillObject.Models
         {
         }
 
+        public virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,6 +32,31 @@ namespace BillObject.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
+
+            modelBuilder.Entity<ChiTietHoaDon>(entity =>
+            {
+                entity.HasKey(e => e.MaKh);
+
+                entity.ToTable("ChiTietHoaDon");
+
+                entity.Property(e => e.MaKh)
+                    .ValueGeneratedNever()
+                    .HasColumnName("MaKH");
+
+                entity.Property(e => e.DiaChiKh)
+                    .HasMaxLength(50)
+                    .HasColumnName("DiaChiKH");
+
+                entity.Property(e => e.DoiTuongKh)
+                    .HasMaxLength(50)
+                    .HasColumnName("DoiTuongKH");
+
+                entity.Property(e => e.HoTenKh)
+                    .HasMaxLength(50)
+                    .HasColumnName("HoTenKH");
+
+                entity.Property(e => e.QuocTich).HasMaxLength(50);
+            });
 
             modelBuilder.Entity<KhachHang>(entity =>
             {
