@@ -15,6 +15,9 @@ namespace DataAccess.Reponsity
 
         IEnumerable<ChiTietHoaDon> IKhachHangReponsity.GetAll() => KhachHangDAO.Instance.GetAllInfor();
 
+
+        IEnumerable<ChiTietHoaDon> IKhachHangReponsity.SearchByID(int id) => KhachHangDAO.Instance.TimKiemTheoID(id);
+
         void IKhachHangReponsity.Update(ChiTietHoaDon cthd) => KhachHangDAO.Instance.Update(cthd);
 
     }

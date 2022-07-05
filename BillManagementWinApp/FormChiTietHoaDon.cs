@@ -23,11 +23,18 @@ namespace BillManagementWinApp
 
         BindingSource source;
 
-        public ChiTietHoaDon ChiTietHoaDonInfo { get; set; }
+        public ChiTietHoaDon ctHoaDonInfo { get; set; }
 
         private void FormChiTietHoaDon_Load(object sender, EventArgs e)
         {
-            LoadHoaDon(khachHangReponsity.GetAll());
+            txtDiaChi.Enabled = false;
+            txtDinhMuc.Enabled = false;
+            txtDongia.Enabled = false;
+            txtHoTen.Enabled = false;
+            txtMa.Enabled = false;
+            txtQuocTich.Enabled = false;
+            txtSoLuong.Enabled = false;
+            cboDoiTuong.Enabled = false;
         }
 
 
@@ -47,14 +54,16 @@ namespace BillManagementWinApp
                 source = new BindingSource();
                 source.DataSource = cthd.ToList();
 
-                txtDiaChi.Clear();
-                txtDinhMuc.Clear();
-                txtDongia.Clear();
-                txtHoTen.Clear();
-                txtMa.Clear();
-                txtQuocTich.Clear();
-                txtSoLuong.Clear();
-                txtTinhTien.Clear();
+
+                txtDiaChi.DataBindings.Clear();
+                txtDinhMuc.DataBindings.Clear();
+                txtDongia.DataBindings.Clear();
+                txtHoTen.DataBindings.Clear();
+                txtMa.DataBindings.Clear();
+                txtQuocTich.DataBindings.Clear();
+                txtSoLuong.DataBindings.Clear();
+                txtTinhTien.DataBindings.Clear();
+                cboDoiTuong.DataBindings.Clear();
 
                 txtMa.DataBindings.Add("Text", source, "MaKH");
                 txtHoTen.DataBindings.Add("Text", source, "HoTenKH");
@@ -65,6 +74,7 @@ namespace BillManagementWinApp
                 txtDinhMuc.DataBindings.Add("Text", source, "DinhMucTieuThu");
                 cboDoiTuong.DataBindings.Add("Text", source, "DoiTuongKH");
 
+                dvgData.DataSource = null;
                 dvgData.DataSource = source;
 
                 if (cthd.Count() == 0)
@@ -79,34 +89,112 @@ namespace BillManagementWinApp
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
 
         private void btnTaoMoi_Click(object sender, EventArgs e)
         {
-            txtDiaChi.Clear();
-            txtDinhMuc.Clear();
-            txtDongia.Clear();
-            txtHoTen.Clear();
-            txtMa.Clear();
-            txtQuocTich.Clear();
-            txtSoLuong.Clear();
-            txtTinhTien.Clear();
-            cboDoiTuong.SelectedIndex = -1;
-
-            txtMa.Focus();
+            FormInsertHoaDon formInsertHoaDon = new FormInsertHoaDon()
+            {
+                Text = "Thêm mới hoá đơn",
+                InsertOrUpdate = false,
+                khachHangReponsity = khachHangReponsity
+            };
+            if (formInsertHoaDon.ShowDialog() == DialogResult.OK)
+            {
+                LoadHoaDon(khachHangReponsity.GetAll());
+                source.Position = source.Position - 1;
+            }
         }
 
-
-
-
-
-
-        private void dvgData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public ChiTietHoaDon GetCTHDObject()
         {
+            ChiTietHoaDon cthd = null;
+            try
+            {
+                cthd = new ChiTietHoaDon()
+                {
+                    MaKh = int.Parse(txtMa.Text),
+                    HoTenKh = txtHoTen.Text,
+                    DiaChiKh = txtDiaChi.Text,
+                    DoiTuongKh = cboDoiTuong.Text,
+                    QuocTich = txtQuocTich.Text,
+                    SoLuongTieuThu = float.Parse(txtSoLuong.Text),
+                    DonGia = float.Parse(txtDongia.Text),
+                    DinhMucTieuThu = float.Parse(txtDinhMuc.Text),
+                };
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: " + ex.Message);
+            }
+            return cthd;
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            LoadHoaDon(khachHangReponsity.GetAll());
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var cthd = GetCTHDObject();
+                khachHangReponsity.Delete(cthd);
+                MessageBox.Show("Xoá thành công !");
+                LoadHoaDon(khachHangReponsity.GetAll());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn có chắc muốn kết thúc chương trình không ?"
+                , "Xác nhận thoát chương trình", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        private void btnChinhSua_Click(object sender, EventArgs e)
+        {
+            FormInsertHoaDon formInsertHoaDon = new FormInsertHoaDon()
+            {
+                Text = "Cập nhật thông tin hoá đơn",
+                InsertOrUpdate = true,
+                chiTietHoaDon = GetCTHDObject(),
+                khachHangReponsity = khachHangReponsity
+            };
+            if (formInsertHoaDon.ShowDialog() == DialogResult.OK)
+            {
+                LoadHoaDon(khachHangReponsity.GetAll());
+                source.Position = source.Position - 1;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int Id = int.Parse(txtTimKiem.Text);
+
+            try
+            {
+                if (Id != 0)
+                {
+                    khachHangReponsity.SearchByID(Id);
+                    LoadHoaDon(khachHangReponsity.SearchByID(Id));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

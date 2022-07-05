@@ -18,6 +18,7 @@ namespace BillObject.Models
         }
 
         public virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
+        public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -54,6 +55,29 @@ namespace BillObject.Models
                 entity.Property(e => e.HoTenKh)
                     .HasMaxLength(50)
                     .HasColumnName("HoTenKH");
+
+                entity.Property(e => e.QuocTich).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<HoaDon>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("HoaDon");
+
+                entity.Property(e => e.DiaChiKh)
+                    .HasMaxLength(50)
+                    .HasColumnName("DiaChiKH");
+
+                entity.Property(e => e.DoiTuongKh)
+                    .HasMaxLength(50)
+                    .HasColumnName("DoiTuongKH");
+
+                entity.Property(e => e.HoTenKh)
+                    .HasMaxLength(50)
+                    .HasColumnName("HoTenKH");
+
+                entity.Property(e => e.MaKh).HasColumnName("MaKH");
 
                 entity.Property(e => e.QuocTich).HasMaxLength(50);
             });

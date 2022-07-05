@@ -4,5 +4,8 @@
     <Compile Update="FormChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormInsertHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
