@@ -19,6 +19,8 @@ namespace BillManagementWinApp
             InitializeComponent();
         }
 
+        string searchType = "";
+
         IKhachHangReponsity khachHangReponsity = new KhachHangReponsity();
 
         BindingSource source;
@@ -49,7 +51,7 @@ namespace BillManagementWinApp
                 txtDongia.Text = null;
                 txtQuocTich.Text = null;
                 txtSoLuong.Text = null;
-                txtTinhTien.Text = null;
+
 
                 source = new BindingSource();
                 source.DataSource = cthd.ToList();
@@ -62,7 +64,7 @@ namespace BillManagementWinApp
                 txtMa.DataBindings.Clear();
                 txtQuocTich.DataBindings.Clear();
                 txtSoLuong.DataBindings.Clear();
-                txtTinhTien.DataBindings.Clear();
+
                 cboDoiTuong.DataBindings.Clear();
 
                 txtMa.DataBindings.Add("Text", source, "MaKH");
@@ -181,14 +183,47 @@ namespace BillManagementWinApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int Id = int.Parse(txtTimKiem.Text);
+            if (txtTimKiem.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã cần tìm ..");
+            }
+            else
+            {
+                try
+                {
+                    int Id = int.Parse(txtTimKiem.Text);
 
+                    if (Id != 0)
+                    {
+                        khachHangReponsity.SearchByID(Id);
+                        LoadHoaDon(khachHangReponsity.SearchByID(Id));
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+
+            }
+
+
+
+        }
+
+        private void btnTimDiaChi_Click(object sender, EventArgs e)
+        {
+            string diaChi = txtTimkiemDiaChi.Text;
             try
             {
-                if (Id != 0)
+                if (diaChi == null)
                 {
-                    khachHangReponsity.SearchByID(Id);
-                    LoadHoaDon(khachHangReponsity.SearchByID(Id));
+                    MessageBox.Show("Vui lòng nhập địa chỉ cần tìm ..");
+                }
+                else
+                {
+                    khachHangReponsity.SearchByDiaChi(diaChi);
+                    LoadHoaDon(khachHangReponsity.SearchByDiaChi(diaChi));
                 }
             }
             catch (Exception ex)
@@ -196,5 +231,38 @@ namespace BillManagementWinApp
                 throw new Exception(ex.Message);
             }
         }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+            string quocTich = cboFilter.Text;
+            try
+            {
+                khachHangReponsity.LocTheoQuocTich(quocTich);
+                LoadHoaDon(khachHangReponsity.LocTheoQuocTich(quocTich));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        private void btnTinhTien_Click(object sender, EventArgs e)
+        {
+            FormThanhToanHoaDon frmThanhToanHoaDon = new FormThanhToanHoaDon()
+            {
+                Text = "Thanh toán hoá đơn",
+                InsertOrUpdate = false,
+                chiTietHoaDon = GetCTHDObject(),
+                khachHangReponsity = khachHangReponsity
+            };
+            if (frmThanhToanHoaDon.ShowDialog() == DialogResult.OK)
+            {
+                LoadHoaDon(khachHangReponsity.GetAll());
+                source.Position = source.Position - 1;
+            }
+        }
+
+
     }
 }

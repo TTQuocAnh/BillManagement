@@ -61,3 +61,4 @@ D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\bin\Debug\net6.0-windows\DataAccess.dll
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\bin\Debug\net6.0-windows\DataAccess.pdb
 D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj\Debug\net6.0-windows\BillManagementWinApp.FormInsertHoaDon.resources
+D:\VisualStudio_SourceCode\FPT_Source C#\BillManagement\BillManagementWinApp\obj\Debug\net6.0-windows\BillManagementWinApp.FormThanhToanHoaDon.resources

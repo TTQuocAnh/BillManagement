@@ -26,7 +26,7 @@ namespace BillManagementWinApp
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Hide();
-            
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace BillManagementWinApp
                 txtDonGia.Text = chiTietHoaDon.DonGia.ToString();
                 txthotenkh.Text = chiTietHoaDon.HoTenKh;
                 txtMakh.Text = chiTietHoaDon.MaKh.ToString();
-                txtQuocTich.Text = chiTietHoaDon.QuocTich; ;
+                txtQuocTich.Text = chiTietHoaDon.QuocTich;
                 txtSoLuongTieuThu.Text = chiTietHoaDon.SoLuongTieuThu.ToString();
                 cboDoituongkh.Text = chiTietHoaDon.DoiTuongKh;
             }

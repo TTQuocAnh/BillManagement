@@ -11,7 +11,10 @@ namespace DataAccess.Reponsity
     {
         IEnumerable<ChiTietHoaDon> GetAll();
         IEnumerable<ChiTietHoaDon> SearchByID(int id);
+        IEnumerable<ChiTietHoaDon> SearchByDiaChi(string diaChi);
+        IEnumerable<ChiTietHoaDon> LocTheoQuocTich(string quocTich);
 
+        float TinhTienHoaDon(int id);
         void Add(ChiTietHoaDon cthd);
         void Update(ChiTietHoaDon cthd);
         void Delete(ChiTietHoaDon cthd);

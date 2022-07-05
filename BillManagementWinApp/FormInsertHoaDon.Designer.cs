@@ -72,7 +72,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(692, 78);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Thêm hoá đơn mới:";
+            this.label1.Text = "Thông tin chi tiết hoá đơn:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
@@ -268,6 +268,7 @@
             this.ClientSize = new System.Drawing.Size(692, 530);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "FormInsertHoaDon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormInsertHoaDon";

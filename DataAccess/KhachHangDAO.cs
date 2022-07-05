@@ -100,5 +100,76 @@ namespace DataAccess
                 throw new Exception(ex.Message);
             }
         }
+
+        public IEnumerable<ChiTietHoaDon> TimKiemTheoDiaChi(string diaChi)
+        {
+            try
+            {
+                using (var CSDL_QLHDTDKLContext = new CSDL_QLHDTDKLContext())
+                {
+                    CSDL_QLHDTDKLContext cSDL_QLHDTDKLContext = new CSDL_QLHDTDKLContext();
+                    var hd = cSDL_QLHDTDKLContext.ChiTietHoaDons.Where(x => x.DiaChiKh.Contains(diaChi));
+                    return hd;
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public IEnumerable<ChiTietHoaDon> LocKhachHangTheoQuocTich(string quocTich)
+        {
+            try
+            {
+                using (var CSDL_QLHDTDKLContext = new CSDL_QLHDTDKLContext())
+                {
+                    CSDL_QLHDTDKLContext cSDL_QLHDTDKLContext = new CSDL_QLHDTDKLContext();   
+                    var hd = cSDL_QLHDTDKLContext.ChiTietHoaDons.Where(x => x.QuocTich.Contains(quocTich));
+                    return hd;
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public float TinhTienThanhToanKHVN(int id)
+        {
+            float kq = 0;
+            try
+            {
+                using (var CSDL_QLHDTDKLContext = new CSDL_QLHDTDKLContext())
+                {
+                    CSDL_QLHDTDKLContext cSDL_QLHDTDKLContext = new CSDL_QLHDTDKLContext();
+                    var hd = cSDL_QLHDTDKLContext.ChiTietHoaDons.Where(x => x.MaKh == id);
+                    foreach (var item in hd)
+                    {
+                        if (string.Compare(item.QuocTich, "Vietnames", true) == 0)
+                        {
+                            if (item.SoLuongTieuThu <= item.DinhMucTieuThu)
+                            {
+                                kq = (float)(item.SoLuongTieuThu * item.DonGia);
+                            }
+                            else
+                            {
+                                kq = (float)(item.DinhMucTieuThu * item.DonGia) +
+                                    (float)((item.SoLuongTieuThu - item.DinhMucTieuThu) * item.DonGia * 2.5);
+                            }
+                        }
+                        else
+                        {
+                            kq = (float)(item.SoLuongTieuThu * item.DonGia);
+                        }
+                    }
+                    return kq;
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
