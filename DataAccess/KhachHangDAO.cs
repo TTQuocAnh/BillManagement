@@ -124,8 +124,19 @@ namespace DataAccess
             {
                 using (var CSDL_QLHDTDKLContext = new CSDL_QLHDTDKLContext())
                 {
-                    CSDL_QLHDTDKLContext cSDL_QLHDTDKLContext = new CSDL_QLHDTDKLContext();   
-                    var hd = cSDL_QLHDTDKLContext.ChiTietHoaDons.Where(x => x.QuocTich.Contains(quocTich));
+                    CSDL_QLHDTDKLContext cSDL_QLHDTDKLContext = new CSDL_QLHDTDKLContext();
+                    IEnumerable<ChiTietHoaDon> hd;
+
+                    //if (string.Compare(quocTich, "Vietnamese", true) == 0)       
+                    if (quocTich.Equals("Vietnamese"))
+                    {
+                        hd = cSDL_QLHDTDKLContext.ChiTietHoaDons.Where(x => x.QuocTich.Contains(quocTich));
+                    }
+                    else
+                    {
+                        hd = cSDL_QLHDTDKLContext.ChiTietHoaDons.Where(x => !x.QuocTich.Equals("Vietnamese"));
+
+                    }
                     return hd;
                 };
             }

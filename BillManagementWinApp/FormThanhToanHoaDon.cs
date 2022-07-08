@@ -58,9 +58,23 @@ namespace BillManagementWinApp
                 var tt = khachHangReponsity.TinhTienHoaDon(id);
                 txtTongChiPhi.Text = tt.ToString();
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+
+        private void bnThanhToan_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn muốn thanh toán hoá đơn này không ?", "Xác nhận thanh toán", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (dr == DialogResult.OK)
+            {
+                MessageBox.Show("Thanh toán thành công !");
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Thanh toán thất bại !");
             }
         }
     }

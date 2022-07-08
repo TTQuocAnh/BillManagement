@@ -142,6 +142,7 @@
             this.bnThanhToan.TabIndex = 23;
             this.bnThanhToan.Text = "Thanh toán";
             this.bnThanhToan.UseVisualStyleBackColor = false;
+            this.bnThanhToan.Click += new System.EventHandler(this.bnThanhToan_Click);
             // 
             // btnThoat
             // 

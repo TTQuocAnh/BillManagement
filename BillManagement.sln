@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Layout View", "1. Layout
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Controller", "2. Controller", "{D645E015-EFFC-4926-90C5-424CBDC65B41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillManagementWinApp", "BillManagementWinApp\BillManagementWinApp.csproj", "{9916EA4B-06B3-4ACC-BCC1-8DB7A204808D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillManagementWinApp", "BillManagementWinApp\BillManagementWinApp.csproj", "{9916EA4B-06B3-4ACC-BCC1-8DB7A204808D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Model", "3. Model", "{3532F983-8F37-4DDC-A0AD-EFF2306087EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillObject", "BillObject\BillObject.csproj", "{5DE65731-EDDC-4997-A63B-6382EBFD0B08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillObject", "BillObject\BillObject.csproj", "{5DE65731-EDDC-4997-A63B-6382EBFD0B08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{D6B00B57-B9D0-4E6A-81D7-E12C023BBAA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{D6B00B57-B9D0-4E6A-81D7-E12C023BBAA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
